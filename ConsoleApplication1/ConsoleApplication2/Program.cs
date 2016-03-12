@@ -11,12 +11,14 @@ namespace ConsoleApplication2
     {
         static void Main(string[] args)
         {
-            string stdString = "Сегодня металлурги Саратовской области из компании \"Росметалл\" выполнили двукратную норму по сдаче металла. И рубили металл при этом";
-            Regex rgx = new Regex(@"[а-яА-Я]*(металл)[а-яА-Я]*");
-            foreach (Match match in rgx.Matches(stdString))
-            {
+            Console.WriteLine("Введите строку для проверки");
+            string str = Console.ReadLine();
+            Regex rgx = new Regex(@"[а-яА-Я]*((м|М)еталл)[а-яА-Я]*");
+            if (rgx.IsMatch(str))
+            foreach(Match match in rgx.Matches(str))
                 Console.WriteLine("Нашёл '{0}'", match.Value);
-            }
+            else
+                Console.WriteLine("Вхождений слова \"металл\" не найдено");
             Console.ReadKey();
         }
     }

@@ -11,10 +11,10 @@ namespace ConsoleApplication1
     {
         static void Main(string[] args)
         {
-            Regex rgx = new Regex(@"^stdLog$");
-            Console.Write("Введите логин:");
-            string str = Console.ReadLine();
-            if (rgx.IsMatch(str))
+            Console.WriteLine("Введите логин:");
+            string login = Console.ReadLine();
+            Regex rgx = new Regex(@"^\D{1}[а-яА-Яa-zA-Z0-9]{1,9}$");
+            if(rgx.IsMatch(login))
                 Console.WriteLine("Логин верен");
             else
                 Console.WriteLine("Логин не верен");
